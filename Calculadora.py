@@ -14,6 +14,10 @@ def dividir( a , b):
     return a / b
 
 def calculadora_simple( operacion , a, b):
+    try:
+        a = int(a)
+        b = int(b)
+
         if operacion == 'sumar':
             return sumar(a,b)
         elif operacion == 'restar':
@@ -24,5 +28,10 @@ def calculadora_simple( operacion , a, b):
             return dividir(a,b)
         else:
             return KeyError(' OPERACION INVALIDA')
-
-print(calculadora_simple("restar" ,400,2))
+         
+    except ZeroDivisionError:
+            return "Error: No divida por cero"
+    except ValueError:
+            return "Error: Admite solo numero"
+    
+print(calculadora_simple("restar" ,4,2))
